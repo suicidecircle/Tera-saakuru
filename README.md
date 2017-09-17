@@ -1,2 +1,2 @@
-# tera_saakuru
-Small freetime side-project
+# Tera saakuru
+Small freetime side-project for some handy stuff.
