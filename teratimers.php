@@ -40,19 +40,21 @@ function showEventTimers(){
 				var sinceMins = (minutes - 59) * (-1);
 				var sinceSecs = (rseconds - 59) * (-1);				
 				
-				if ((key == "Skyring Solo" || key == "Skyring Team" || "Skyring Solo #2") && (sinceHours < 2)){
-					bgEvents[key] = key + " started " +  sinceHours + ":" + sinceMins + ":" + sinceSecs + " hours ago.";
-					mainDiv.innerHTML +="<div class='active'>" + bgEvents[key] + "<div>"+"<br> ";
-				}else if ((key == "Fraywind" || key == "Corsairs" || key === "Gridiron") && (sinceHours < 3)) {
-					bgEvents[key] = key + " started " +  sinceHours + ":" + sinceMins + ":" + sinceSecs + " hours ago.";
-					mainDiv.innerHTML += "<div class='active'>" + bgEvents[key] + "<div>" + "<br> ";
-				}else if ((key == "Skyring Solo" || key == "Skyring Team"  || "Skyring Solo #2") && (sinceHours => 2)) {
-					bgEvents[key] = key + " is now over. Event ended " +  (sinceHours - 2) + " hour(s) " + sinceMins + " minutes " + sinceSecs + " seconds ago.";
-					mainDiv.innerHTML += "<div class='passive'>" + bgEvents[key] + "<div>" + "<br> ";
-				}else {
-					bgEvents[key] = key + " is now over. Event ended " +  (sinceHours - 3) + " hour(s) " + sinceMins + " minutes " + sinceSecs + " seconds ago.";
-					mainDiv.innerHTML += "<div class='passive'>" + bgEvents[key] + "<div>" + "<br> ";
-				}				
+				if (sinceHours < 5) {
+					if ((key == "Skyring Solo" || key == "Skyring Team" || "Skyring Solo #2") && (sinceHours < 2)){
+						bgEvents[key] = key + " started " +  sinceHours + ":" + sinceMins + ":" + sinceSecs + " hours ago.";
+						mainDiv.innerHTML +="<div class='active'>" + bgEvents[key] + "<div>"+"<br> ";
+					}else if ((key == "Fraywind" || key == "Corsairs" || key === "Gridiron") && (sinceHours < 3)) {
+						bgEvents[key] = key + " started " +  sinceHours + ":" + sinceMins + ":" + sinceSecs + " hours ago.";
+						mainDiv.innerHTML += "<div class='active'>" + bgEvents[key] + "<div>" + "<br> ";
+					}else if ((key == "Skyring Solo" || key == "Skyring Team"  || "Skyring Solo #2") && (sinceHours => 2)) {
+						bgEvents[key] = key + " is now over. Event ended " +  (sinceHours - 2) + " hour(s) " + sinceMins + " minutes " + sinceSecs + " seconds ago.";
+						mainDiv.innerHTML += "<div class='passive'>" + bgEvents[key] + "<div>" + "<br> ";
+					}else {
+						bgEvents[key] = key + " is now over. Event ended " +  (sinceHours - 3) + " hour(s) " + sinceMins + " minutes " + sinceSecs + " seconds ago.";
+						mainDiv.innerHTML += "<div class='passive'>" + bgEvents[key] + "<div>" + "<br> ";
+					}
+				}
 			}else {
 				bgEvents[key] = hours + " hour(s) " + minutes + " minutes " + rseconds + " seconds.";
 				mainDiv.innerHTML += "<br>" + key + " starts in " + bgEvents[key];
@@ -96,7 +98,7 @@ function showBgTime(){
 		"Skyring Solo": <?php echo $skyringSoloTuesday; ?>,
 		"Skyring Solo #2"  : <?php echo $skyringSoloTuesday2; ?>,
 		Gridiron  : <?php echo $gridironTuesday; ?>,
-		"Skyring Solo #3"  : <?php echo $skyringSoloTuesday2; ?>	
+		"Skyring Solo #3"  : <?php echo $skyringSoloTuesday3; ?>	
 		};		
 		showEventTimers();	
 		break;
